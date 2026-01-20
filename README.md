@@ -1,1 +1,1 @@
-# backend-hono-ts-template
+# full stack template for backend and frontend
