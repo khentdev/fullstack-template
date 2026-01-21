@@ -9,9 +9,9 @@ description: Vue 3 + TypeScript stack: Composition API, Pinia, Vue Router, VueUs
 
 This guide assumes the following stack (adapt as needed):
 - **Core**: Vue 3 (Composition API), TypeScript (strict mode)
-- **State**: TanStack Vue Query (server state), Pinia (client state) - *adaptable to other libraries*
-- **Styling**: TailwindCSS v4 - *principles apply to other utility frameworks*
-- **HTTP**: Axios - *replace with your preferred client*
+- **State**: TanStack Vue Query (server state), VueUse, Pinia (client state) - *adaptable to other libraries*
+- **Styling**: TailwindCSS v4, Headless UI - *principles apply to other utility frameworks*
+- **HTTP**: Axios
 - **Build**: Vite - *patterns work with any bundler*
 
 ## Code Structure & Organization

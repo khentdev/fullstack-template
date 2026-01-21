@@ -10,15 +10,14 @@ trigger: always_on
 ---
 
 ## Tech Stack
-> **TODO:** Update with your actual stack.
 - **Runtime:** Node.js 20+
-- **Framework:** Hono / Express / Fastify
+- **Framework:** Hono
 - **Language:** TypeScript (strict mode)
-- **Database:** PostgreSQL / MySQL / MongoDB
-- **ORM:** Prisma / TypeORM
-- **Auth:** JWT (HTTP-only) / Sessions
-- **Testing:** Vitest / Jest
-- **Logging:** Pino / Winston
+- **Database:** PostgreSQL
+- **ORM:** Prisma
+- **Auth:** JWT (HTTP-only)
+- **Testing:** Vitest
+- **Logging:** Pino
 
 ---
 
