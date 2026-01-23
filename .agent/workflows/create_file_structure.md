@@ -170,13 +170,14 @@ root/
     seed/
     schema.prisma
   src/
+    infra/
+      appGracefulShutdown.ts
+      logger.ts
     configs/
       test/
       env.ts              # Spreads & re-exports feature envs
       initDotEnv.ts
       loadEnv.ts
-      upstashRedis.ts
-      resend.ts
     errors/
       appError.ts         # Base error class
       index.ts            # Re-exports all feature errors
@@ -202,13 +203,11 @@ root/
         errors.ts
         middleware.ts
         index.ts          # Barrel file - exports public API
-     routes/
+    routes/
       index.ts            # Base: Imports feature routes from index.ts and register here
     utils/                # App-specific utilities
       hash.ts
       validation.ts
-      appGracefulShutdown.ts
-      logger.ts
       extractIP.ts
     middleware/
       validateAccessToken.ts
