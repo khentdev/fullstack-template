@@ -27,10 +27,12 @@ export const globalErrorHandler = (err: Error, c: Context) => {
     errorLogger(err, c)
     if (err instanceof AppError)
         return c.json({
-            message: err.message,
-            code: err.code,
-            field: err.field,
-            data: err.data
+            error: {
+                message: err.message,
+                code: err.code,
+                field: err.field,
+                data: err.data
+            }
         }, err.status)
     return c.json({ error: { message: "Something went wrong on our end. Please try again later.", code: "SERVER_ERROR" } }, 500)
 }
