@@ -13,7 +13,7 @@ import { tokenExpiry } from '../auth/token.js'
 const isProd = () => env.NODE_ENV === 'production'
 
 type CreateAuthCookieOptionsParams = {
-    type: "refreshToken" | "csrfToken"
+    type: "sid" | "csrfToken"
     maxAge?: number
 }
 function createAuthCookieOptions({ type, maxAge }: CreateAuthCookieOptionsParams): CookieOptions {
@@ -21,7 +21,7 @@ function createAuthCookieOptions({ type, maxAge }: CreateAuthCookieOptionsParams
         path: "/",
         domain: isProd() ? env.DOMAIN_NAME : undefined,
         maxAge,
-        httpOnly: type === "refreshToken",
+        httpOnly: type === "sid",
         secure: isProd(),
         sameSite: 'lax',
         prefix: isProd() ? "secure" : undefined
@@ -34,18 +34,18 @@ type SetAuthCookieParams = {
     maxAge?: number
 }
 export const setRefreshTokenCookie = async ({ c, token, maxAge = tokenExpiry().refreshTokenMaxAge }: SetAuthCookieParams) =>
-    await setSignedCookie(c, "refreshToken", token, env.COOKIE_SECRET, createAuthCookieOptions({ type: "refreshToken", maxAge }))
+    await setSignedCookie(c, "sid", token, env.COOKIE_SECRET, createAuthCookieOptions({ type: "sid", maxAge }))
 export const setCsrfTokenCookie = async ({ c, token, maxAge = tokenExpiry().csrfTokenMaxAge }: SetAuthCookieParams) =>
     await setSignedCookie(c, "csrfToken", token, env.COOKIE_SECRET, createAuthCookieOptions({ type: "csrfToken", maxAge }))
 
-export const getRefreshTokenCookie = async (c: Context) => await getSignedCookie(c, env.COOKIE_SECRET, "refreshToken")
+export const getRefreshTokenCookie = async (c: Context) => await getSignedCookie(c, env.COOKIE_SECRET, "sid")
 export const getCsrfTokenCookie = async (c: Context) => await getSignedCookie(c, env.COOKIE_SECRET, "csrfToken")
 
-export const deleteAuthCookie = (c: Context, name: "refreshToken" | "csrfToken") =>
+export const deleteAuthCookie = (c: Context, name: "sid" | "csrfToken") =>
     deleteCookie(c, name, {
         path: "/",
         domain: isProd() ? env.DOMAIN_NAME : undefined,
-        httpOnly: name === "refreshToken",
+        httpOnly: name === "sid",
         secure: isProd(),
         sameSite: 'lax',
         prefix: isProd() ? "secure" : undefined
