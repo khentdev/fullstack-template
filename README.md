@@ -44,8 +44,7 @@ Follows a strict separation of concerns:
 ## Getting Started
 
 ### Prerequisites
-- Node.js (v20+)
-- PostgreSQL
+- Docker Desktop
 
 ### Installation
 
@@ -62,6 +61,7 @@ Follows a strict separation of concerns:
     cp .env.example .env # Configure your DB_URL
     docker compose -f compose.dev.yaml up -d
     npx prisma migrate dev --name init
+    npx prisma generate
     ```
 
 3.  **Setup Frontend**
@@ -76,7 +76,7 @@ Follows a strict separation of concerns:
 **Backend Development Server**
 ```bash
 # In Backend directory
-npm run dev
+docker compose -f compose.dev.yaml watch
 ```
 
 **Frontend Development Server**
