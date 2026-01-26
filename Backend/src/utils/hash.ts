@@ -1,3 +1,4 @@
-import { createHash } from "crypto";
-const hashData = (data: string) => createHash("sha256").update(data).digest("hex")
-export default hashData
+import { createHmac } from "crypto";
+import { env } from "../configs/env.js";
+export const hashData = (data: string) => createHmac("sha256", env.HASH_SECRET).update(data).digest("hex")
+export const compareHashes = (rawData: string, hashedData: string) => hashData(rawData) === hashedData

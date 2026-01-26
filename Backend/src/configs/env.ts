@@ -9,6 +9,7 @@ export const env = {
     FRONTEND_PROD_URL: loadEnvVar("FRONTEND_URL", "http://localhost:4173"),
     FRONTEND_DEV_URL: loadEnvVar("FRONTEND_DEV_URL", "http://localhost:5173"),
 
+    HASH_SECRET: loadEnvVar("HASH_SECRET", "your-256-secret-length"),
     COOKIE_SECRET: loadEnvVar("COOKIE_SECRET", "your-256-secret-length"),
     JWT_ISSUER: loadEnvVar("JWT_ISSUER", "your-domain"),
     JWT_SECRET: loadEnvVar("JWT_SECRET", "your-512-secret-length")
