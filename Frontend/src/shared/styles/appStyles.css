@@ -99,6 +99,37 @@
   --gray-10: #000000;
   --gray-11: #000000;
   --gray-12: #000000;
+
+  /* ------------------------------------------------ */
+  /* 2. AUTOMATIC SEMANTIC MAPPING (Do not edit)      */
+  /* ------------------------------------------------ */
+  /* Backgrounds */
+  --bg-app: var(--gray-1);
+  --bg-panel: var(--gray-2);
+  --bg-accent-subtle: var(--accent-2);
+  /* Interactive Components */
+  --component-bg: var(--gray-3);
+  --component-bg-hover: var(--gray-4);
+  --component-bg-active: var(--gray-5);
+  --accent-component-bg: var(--accent-3);
+  --accent-component-bg-hover: var(--accent-4);
+  --accent-component-bg-active: var(--accent-5);
+  /* Borders */
+  --border-subtle: var(--gray-6);
+  --border-default: var(--gray-7);
+  --border-strong: var(--gray-8);
+  --accent-border-subtle: var(--accent-6);
+  --accent-border-default: var(--accent-7);
+  --accent-border-focus: var(--accent-8);
+  /* Solids */
+  --solid-bg: var(--accent-9);
+  --solid-bg-hover: var(--accent-10);
+  --solid-text: #ffffff;
+  /* Text */
+  --text-low-contrast: var(--gray-11);
+  --text-high-contrast: var(--gray-12);
+  --text-accent-low: var(--accent-11);
+  --text-accent-high: var(--accent-12);
 }
 @theme {
   /* ------------------------------------------------ */
