@@ -13,6 +13,7 @@
     "@tanstack/vue-query": "^5.92.8",
     "@thumbmarkjs/thumbmarkjs": "^1.6.1",
     "@thumbmarkjs/vue": "^1.0.1",
+    "@vueuse/core": "^14.2.1",
     "axios": "^1.13.2",
     "lucide-vue-next": "^0.563.0",
     "pinia": "^3.0.4",
