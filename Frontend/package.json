@@ -13,6 +13,7 @@
     "@tanstack/vue-query": "^5.92.8",
     "@thumbmarkjs/thumbmarkjs": "^1.6.1",
     "@thumbmarkjs/vue": "^1.0.1",
+    "@unhead/vue": "^3.0.0-beta.6",
     "@vueuse/core": "^14.2.1",
     "axios": "^1.13.2",
     "lucide-vue-next": "^0.563.0",
@@ -27,6 +28,7 @@
     "@vue/tsconfig": "^0.8.1",
     "typescript": "~5.9.3",
     "vite": "^7.2.4",
+    "vite-plugin-sitemap": "^0.8.2",
     "vue-tsc": "^3.1.4"
   }
 }

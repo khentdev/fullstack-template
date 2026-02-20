@@ -1,5 +1,6 @@
 import { VueQueryPlugin } from '@tanstack/vue-query'
 import { createThumbmarkPlugin } from '@thumbmarkjs/vue'
+import { createHead } from '@unhead/vue/client'
 import { createPinia } from "pinia"
 import { createApp } from 'vue'
 import App from './App.vue'
@@ -8,6 +9,7 @@ import './shared/styles/appStyles.css'
 
 const app = createApp(App)
 app.use(VueQueryPlugin)
+app.use(createHead())
 app.use(createPinia())
 app.use(router)
 app.use(createThumbmarkPlugin({
