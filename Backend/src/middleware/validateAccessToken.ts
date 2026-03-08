@@ -2,7 +2,7 @@ import type { Context, Next } from "hono";
 import type { User } from "../../generated/prisma/client.js";
 import { AppError } from "../errors/appError.js";
 import { prisma } from "../infra/prisma.js";
-import { verifyToken } from "../shared/auth/token.js";
+import { verifyTokenOrThrow as verifyToken } from "../lib/tokens.js";
 
 export type VerifyTokenVariables = { verifyTokenVariables: { user: User } }
 async function validateAccessToken(c: Context, next: Next) {

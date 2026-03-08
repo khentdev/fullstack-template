@@ -7,8 +7,8 @@ import {
     setSignedCookie,
 } from 'hono/cookie'
 import type { CookieOptions } from 'hono/utils/cookie'
-import { env } from '../../configs/env.js'
-import { tokenExpiry } from '../auth/token.js'
+import { env } from '../configs/env.js'
+import { tokenExpiry } from './tokens.js'
 
 const isProd = () => env.NODE_ENV === 'production'
 
@@ -35,11 +35,10 @@ type SetAuthCookieParams = {
 }
 export const setRefreshTokenCookie = async ({ c, token, maxAge = tokenExpiry().refreshTokenMaxAge }: SetAuthCookieParams) =>
     await setSignedCookie(c, "sid", token, env.COOKIE_SECRET, createAuthCookieOptions({ type: "sid", maxAge }))
-export const setCsrfTokenCookie = async ({ c, token, maxAge = tokenExpiry().csrfTokenMaxAge }: SetAuthCookieParams) =>
-    await setSignedCookie(c, "csrfToken", token, env.COOKIE_SECRET, createAuthCookieOptions({ type: "csrfToken", maxAge }))
+export const setCsrfTokenCookie = ({ c, token, maxAge = tokenExpiry().csrfTokenMaxAge }: SetAuthCookieParams) =>
+    setNormalCookie(c, "csrfToken", token, maxAge)
 
-export const getRefreshTokenCookie = async (c: Context) => await getSignedCookie(c, env.COOKIE_SECRET, "sid")
-export const getCsrfTokenCookie = async (c: Context) => await getSignedCookie(c, env.COOKIE_SECRET, "csrfToken")
+export const getRefreshTokenCookie = async (c: Context) => await getSignedCookie(c, env.COOKIE_SECRET, "sid", isProd() ? 'secure' : undefined)
 
 export const deleteAuthCookie = (c: Context, name: "sid" | "csrfToken") =>
     deleteCookie(c, name, {
@@ -48,17 +47,18 @@ export const deleteAuthCookie = (c: Context, name: "sid" | "csrfToken") =>
         httpOnly: name === "sid",
         secure: isProd(),
         sameSite: 'lax',
-        prefix: isProd() ? "secure" : undefined
+        prefix: isProd() && name !== "csrfToken" ? "secure" : undefined
     })
 
 // Normal Cookie Generations
-export const setNormalCookie = (c: Context, name: string, value: string) =>
+export const setNormalCookie = (c: Context, name: string, value: string, maxAge?: number) =>
     setCookie(c, name, value, {
         path: "/",
         domain: isProd() ? env.DOMAIN_NAME : undefined,
         httpOnly: false,
         secure: isProd(),
         sameSite: 'lax',
+        maxAge,
     })
 
 export const getNormalCookie = (c: Context, name: string) => getCookie(c, name)
