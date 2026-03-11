@@ -1,34 +1,35 @@
 {
   "name": "frontend",
-  "private": true,
-  "version": "0.0.0",
   "type": "module",
+  "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc -b && vite build",
-    "preview": "vite preview"
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.18",
-    "@tanstack/vue-query": "^5.92.8",
-    "@thumbmarkjs/thumbmarkjs": "^1.6.1",
-    "@thumbmarkjs/vue": "^1.0.1",
-    "@unhead/vue": "^3.0.0-beta.6",
-    "@vueuse/core": "^14.2.1",
-    "axios": "^1.13.2",
-    "lucide-vue-next": "^0.563.0",
-    "pinia": "^3.0.4",
-    "tailwindcss": "^4.1.18",
-    "vue": "^3.5.24",
+    "@nuxt/icon": "^2.2.1",
+    "@nuxt/image": "^2.0.0",
+    "@nuxt/ui": "^4.5.1",
+    "@nuxtjs/color-mode": "^4.0.0",
+    "@nuxtjs/robots": "^5.7.1",
+    "@nuxtjs/seo": "^3.4.0",
+    "@nuxtjs/sitemap": "^7.6.0",
+    "@peterbud/nuxt-query": "^1.6.0",
+    "@pinia/nuxt": "^0.11.3",
+    "@tailwindcss/vite": "^4.2.1",
+    "nuxt": "^4.3.1",
+    "tailwindcss": "^4.2.1",
+    "vue": "^3.5.30",
     "vue-router": "^4.6.4"
   },
   "devDependencies": {
-    "@types/node": "^24.10.1",
-    "@vitejs/plugin-vue": "^6.0.1",
-    "@vue/tsconfig": "^0.8.1",
-    "typescript": "~5.9.3",
-    "vite": "^7.2.4",
-    "vite-plugin-sitemap": "^0.8.2",
-    "vue-tsc": "^3.1.4"
+    "@iconify-json/lucide": "^1.2.96",
+    "@vueuse/core": "^14.2.1",
+    "@vueuse/nuxt": "^14.2.1"
   }
 }
