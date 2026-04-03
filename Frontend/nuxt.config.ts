@@ -15,6 +15,7 @@ export default defineNuxtConfig({
     '@nuxtjs/sitemap',
     '@vueuse/nuxt',
     '@peterbud/nuxt-query',
+    '@nuxtjs/seo',
   ],
 
   nuxtQuery: {
